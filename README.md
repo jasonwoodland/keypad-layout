@@ -4,7 +4,7 @@ Control window layout using <kbd>CTRL</kbd> + number keys on macOS. Press two nu
 
 This fork adds margins between windows and changes the way <kbd>CTRL</kbd>-<kbd>0</kbd> works.
 
-![Preview](https://raw.githubusercontent.com/jasonwoodland/keypay-layout/master/Preview.png)
+![Preview](https://github.com/jasonwoodland/keypad-layout/blob/master/Preview.png?raw=true)
 
 ## Examples
 | <kbd>CTRL</kbd> +              | Result                    |
