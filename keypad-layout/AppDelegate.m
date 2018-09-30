@@ -13,19 +13,61 @@
 @property NSStatusItem *statusItem;
 @property NSRect rect;
 @property NSRect wildcardRect;
+@property CGPoint screenMargin;
+@property CGPoint margin;
 @end
 
 @implementation AppDelegate
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	[self installStatusBarIcon];
+    // [self installStatusBarIcon]; // Nah
+    [self loadDefaults];
     self.wildcardRect = NSMakeRect(0, 0, 1, 1);
 	self.trustTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(installHotkeys) userInfo:nil repeats:YES];
 }
 
+-(void)observeValueForKeyPath:(NSString *)aKeyPath ofObject:(id)anObject
+                       change:(NSDictionary *)aChange context:(void *)aContext {
+    NSLog(@"Defaults updated, reading new values");
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    self.margin = NSPointFromString([defaults stringForKey:@"margin"]);
+    self.screenMargin = NSPointFromString([defaults stringForKey:@"screenMargin"]);
+}
+
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
 	// Insert code here to tear down your application
+}
+
+- (void)loadDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![defaults objectForKey:@"margin"]) {
+        NSLog(@"Writing defaults");
+
+        self.margin = CGPointMake(24, 24);
+        self.screenMargin = CGPointMake(24, 24);
+        [defaults setValue:NSStringFromPoint(self.margin) forKey:@"margin"];
+        [defaults setValue:NSStringFromPoint(self.screenMargin) forKey:@"screenMargin"];
+        [defaults synchronize];
+    } else {
+        NSLog(@"Reading defaults");
+        self.margin = NSPointFromString([defaults stringForKey:@"margin"]);
+        self.screenMargin = NSPointFromString([defaults stringForKey:@"screenMargin"]);
+        [defaults synchronize];
+    }
+
+    [[NSUserDefaults standardUserDefaults] addObserver:self
+                                            forKeyPath:@"margin"
+                                               options:NSKeyValueObservingOptionNew
+                                               context:NULL];
+    
+    [[NSUserDefaults standardUserDefaults] addObserver:self
+                                            forKeyPath:@"screenMargin"
+                                               options:NSKeyValueObservingOptionNew
+                                               context:NULL];
 }
 
 - (void)installStatusBarIcon {
@@ -89,8 +131,6 @@ CGEventRef hotkeyCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef ev
 }
 
 - (NSRect)rectForCoordinateX:(CGFloat)x Y:(CGFloat)y rows:(CGFloat)rows columns:(CGFloat)columns {
-    CGPoint screenMargin = CGPointMake(24, 24);
-    CGPoint margin = CGPointMake(24, 24);
     
     NSScreen *primaryScreen = [NSScreen screens][0];
     NSScreen *screen = [NSScreen mainScreen];
@@ -98,20 +138,20 @@ CGEventRef hotkeyCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef ev
     CGFloat dockHeight = (screen.frame.size.height - screen.visibleFrame.size.height) - statusBarHeight;
     CGFloat dockWidth = (screen.frame.size.width - screen.visibleFrame.size.width);
     NSRect rect = screen.frame;
-    rect.origin.x = screen.visibleFrame.origin.x + screenMargin.x;
-    rect.origin.y = -screen.frame.origin.y + (primaryScreen.frame.size.height - screen.frame.size.height) + screenMargin.y;
+    rect.origin.x = screen.visibleFrame.origin.x + self.screenMargin.x;
+    rect.origin.y = -screen.frame.origin.y + (primaryScreen.frame.size.height - screen.frame.size.height) + self.screenMargin.y;
     rect.origin.y += statusBarHeight;
-    rect.size.height -= statusBarHeight + dockHeight + screenMargin.y * 2;
-    rect.size.width -= dockWidth + screenMargin.x * 2;
+    rect.size.height -= statusBarHeight + dockHeight + self.screenMargin.y * 2;
+    rect.size.width -= dockWidth + self.screenMargin.x * 2;
     rect.size.width = rect.size.width / columns;
     rect.size.height = rect.size.height / rows;
     rect.origin.x += x * rect.size.width;
     rect.origin.y += y * rect.size.height;
     
-    rect.origin.x += margin.x;
-    rect.origin.y += margin.y;
-    rect.size.width -= margin.x * 2;
-    rect.size.height -= margin.y * 2;
+    rect.origin.x += self.margin.x;
+    rect.origin.y += self.margin.y;
+    rect.size.width -= self.margin.x * 2;
+    rect.size.height -= self.margin.y * 2;
 
 	return rect;
 }

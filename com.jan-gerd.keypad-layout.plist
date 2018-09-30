@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.jan-gerd.keypad-layout</string>
+    <key>Disabled</key>
+    <false/>
+    <key>Program</key>
+    <string>/Users/Shared/Keypad Layout.app/Contents/MacOS/Keypad Layout</string>
+    <key>KeepAlive</key>
+    <dict>
+        <key>Crashed</key>
+        <true/>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>ProcessType</key>
+    <string>Interactive</string>
+    <key>Nice</key>
+    <integer>-5</integer>
+</dict>
+</plist>
