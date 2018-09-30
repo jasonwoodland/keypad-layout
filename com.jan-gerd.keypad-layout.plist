@@ -7,7 +7,7 @@
     <key>Disabled</key>
     <false/>
     <key>Program</key>
-    <string>/Users/Shared/Keypad Layout.app/Contents/MacOS/Keypad Layout</string>
+    <string>/Applications/Keypad Layout.app/Contents/MacOS/Keypad Layout</string>
     <key>KeepAlive</key>
     <dict>
         <key>Crashed</key>

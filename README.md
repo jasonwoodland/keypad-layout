@@ -9,15 +9,13 @@ This fork adds window spacing and changes the way<kbd>CTRL</kbd>-<kbd>0</kbd> co
 
 ## Installation
 
+Download the [latest release](https://github.com/jasonwoodland/keypad-layout/releases/latest) and copy `Keypad Layout.app` to `/Applications`.
+
 You can run Keypad Layout on startup by adding the `plist` to your `LaunchAgents`:
 
 ```bash
 git clone https://github.com/jasonwoodland/keypad-layout
-cd keypad-layout
-curl https://github.com/jasonwoodland/keypad-layout/releases/download/latest/Keypad-Layout.zip > Keypad-Layout.zip
-unzip Keypad-Layout.zip
-mv Keypad\ Layout.app /Users/Shared
-cp com.jan-gerd.keypad-layout.plist ~/Library/LaunchAgents
+cp keypad-layout/com.jan-gerd.keypad-layout.plist ~/Library/LaunchAgents
 launchctl load -wF ~/Library/LaunchAgents/com.jan-gerd.keypad-layout.plist
 ```
 
@@ -56,7 +54,6 @@ killall Keypad\ Layout
 ## Uninstall
 
 ```bash
-killall Keypad\ Layout
 launchctl unload -wF ~/Library/LaunchAgents/com.jan-gerd.keypad-layout.plist
 rm ~/Library/LaunchAgents/com.jan-gerd.keypad-layout.plist
 rm -rf /Users/Shared/Keypad\ Layout.app
