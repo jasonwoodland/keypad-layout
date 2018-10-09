@@ -30,7 +30,7 @@ defaults write com.jan-gerd.keypad-layout '{ margin = "{24, 24}"; screenMargin =
 ## Examples
 
 | Key Command                                                                            | Window Position               |
-| :--------------------------------------------------------                              | :------------------------     |
+| :-                                                                                     | :-                            |
 | <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd>                              | Full screen                   |
 | <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd>                              | Top third                     |
 | <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>3</kbd>                              | Bottom third                  |
@@ -43,9 +43,12 @@ defaults write com.jan-gerd.keypad-layout '{ margin = "{24, 24}"; screenMargin =
 | <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>6</kbd> <kbd>CTRL</kbd>-<kbd>6</kbd> | Top Half, right third         |
 | <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>2</kbd> <kbd>CTRL</kbd>-<kbd>3</kbd> | Bottom half, two right thirds |
 | <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>5</kbd> <kbd>CTRL</kbd>-<kbd>6</kbd> | Top half, two right thirds    |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> | Left half                     |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd> | Full screen                   |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> | Right half                    |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> | Left half                     |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd> <kbd>CTRL</kbd>-<kbd>0</kbd> | Right half                    |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> <kbd>CTRL</kbd>-<kbd>0</kbd> | Top half                      |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd> | Bottom half                   |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> | Bottom left corner            |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> | Top right corner              |
 
 
 ## Quit Keypad Layout

@@ -172,12 +172,14 @@ CGEventRef hotkeyCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef ev
 - (void)handleHotkeyChar:(char)c {
 	NSRect rect = NSZeroRect;
     
-    if (c == '0') {
+    // Set the zeroCommand flag if 0 is the first key pressed.
+    if (!self.zeroCommand && c == '0') {
         self.zeroCommand = true;
         return;
     }
     
     if (!self.zeroCommand) {
+        // Uses a 9x9 grid
         switch (c) {
             case '7':
                 rect = [self rectForCoordinateX:0 Y:0 rows:3 columns:3];
@@ -210,15 +212,20 @@ CGEventRef hotkeyCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef ev
                 return;
         }
     } else {
+        // Uses a 6x2 grid for keys 1-6
+        // and a 2x2 grid for keys 7-0
 		switch (c) {
             case '7':
-                rect = [self rectForCoordinateX:0 Y:0 rows:1 columns:2];
+                rect = [self rectForCoordinateX:0 Y:1 rows:2 columns:2];
                 break;
             case '8':
-                rect = [self rectForCoordinateX:0 Y:0 rows:1 columns:1];
+                rect = [self rectForCoordinateX:1 Y:1 rows:2 columns:2];
                 break;
             case '9':
-                rect = [self rectForCoordinateX:1 Y:0 rows:1 columns:2];
+                rect = [self rectForCoordinateX:0 Y:0 rows:2 columns:2];
+                break;
+            case '0':
+                rect = [self rectForCoordinateX:1 Y:0 rows:2 columns:2];
                 break;
             case '4':
                 rect = [self rectForCoordinateX:0 Y:0 rows:2 columns:3];
