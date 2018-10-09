@@ -2,8 +2,10 @@
 
 Control window layout using <kbd>CTRL</kbd> + number keys on macOS. Press two number keys in a row while holding down <kbd>CTRL</kbd> to select the new window position on a 3x3 grid.
 
-This fork adds window spacing and changes the way<kbd>CTRL</kbd>-<kbd>0</kbd> commands work.
-<kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>1</kbd>-<kbd>6</kbd> commands now reposition windows on a 3x2 grid.
+This fork adds window spacing and changes the way <kbd>CTRL</kbd>-<kbd>0</kbd> commands work.
+<kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>1</kbd>-<kbd>6</kbd> commands reposition windows on a 3x2 grid.
+<kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd>-<kbd>0</kbd> commands reposition windows on a 2x2 grid.
+
 
 ![Preview](https://github.com/jasonwoodland/keypad-layout/blob/master/Preview.png?raw=true)
 
@@ -48,7 +50,7 @@ defaults write com.jan-gerd.keypad-layout '{ margin = "{24, 24}"; screenMargin =
 | <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> <kbd>CTRL</kbd>-<kbd>0</kbd> | Top half                      |
 | <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd> | Bottom half                   |
 | <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> | Bottom left corner            |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> | Top right corner              |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>0</kbd> | Top right corner              |
 
 
 ## Quit Keypad Layout
