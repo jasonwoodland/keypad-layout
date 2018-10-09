@@ -29,20 +29,23 @@ defaults write com.jan-gerd.keypad-layout '{ margin = "{24, 24}"; screenMargin =
 
 ## Examples
 
-| Key Command                                               | Window Position           |
-| :-------------------------------------------------------- | :------------------------ |
-| <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> | Full screen               |
-| <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> | Top third                 |
-| <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>3</kbd> | Bottom third              |
-| <kbd>CTRL</kbd>-<kbd>3</kbd> <kbd>CTRL</kbd>-<kbd>1</kbd> | Bottom third              |
-| <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> | Left third                |
-| <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd> | Left two thirds           |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>1</kbd> | Bottom half, left third   |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>2</kbd> | Bottom half, middle third |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>6</kbd> | Top Half, right third     |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> | Left half                 |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd> | Full screen               |
-| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> | Right half                |
+| Key Command                                                                            | Window Position               |
+| :--------------------------------------------------------                              | :------------------------     |
+| <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd>                              | Full screen                   |
+| <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd>                              | Top third                     |
+| <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>3</kbd>                              | Bottom third                  |
+| <kbd>CTRL</kbd>-<kbd>3</kbd> <kbd>CTRL</kbd>-<kbd>1</kbd>                              | Bottom third                  |
+| <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd>                              | Left third                    |
+| <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd>                              | Left two thirds               |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>1</kbd> <kbd>CTRL</kbd>-<kbd>1</kbd> | Bottom half, left third       |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>3</kbd> <kbd>CTRL</kbd>-<kbd>3</kbd> | Bottom half, right third      |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>4</kbd> <kbd>CTRL</kbd>-<kbd>4</kbd> | Top Half, left third          |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>6</kbd> <kbd>CTRL</kbd>-<kbd>6</kbd> | Top Half, right third         |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>2</kbd> <kbd>CTRL</kbd>-<kbd>3</kbd> | Bottom half, two right thirds |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>5</kbd> <kbd>CTRL</kbd>-<kbd>6</kbd> | Top half, two right thirds    |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> <kbd>CTRL</kbd>-<kbd>7</kbd> | Left half                     |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd> <kbd>CTRL</kbd>-<kbd>8</kbd> | Full screen                   |
+| <kbd>CTRL</kbd>-<kbd>0</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> <kbd>CTRL</kbd>-<kbd>9</kbd> | Right half                    |
 
 
 ## Quit Keypad Layout

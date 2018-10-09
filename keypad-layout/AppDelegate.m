@@ -12,7 +12,7 @@
 @property NSTimer *trustTimer;
 @property NSStatusItem *statusItem;
 @property NSRect rect;
-@property NSRect wildcardRect;
+@property Boolean zeroCommand;
 @property CGPoint screenMargin;
 @property CGPoint margin;
 @end
@@ -23,7 +23,6 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // [self installStatusBarIcon]; // Nah
     [self loadDefaults];
-    self.wildcardRect = NSMakeRect(0, 0, 1, 1);
 	self.trustTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(installHotkeys) userInfo:nil repeats:YES];
 }
 
@@ -173,42 +172,44 @@ CGEventRef hotkeyCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef ev
 - (void)handleHotkeyChar:(char)c {
 	NSRect rect = NSZeroRect;
     
-	switch (c) {
-		case '7':
-            rect = [self rectForCoordinateX:0 Y:0 rows:3 columns:3];
-            break;
-		case '8':
-            rect = [self rectForCoordinateX:1 Y:0 rows:3 columns:3];
-			break;
-		case '9':
-            rect = [self rectForCoordinateX:2 Y:0 rows:3 columns:3];
-			break;
-		case '4':
-            rect = [self rectForCoordinateX:0 Y:1 rows:3 columns:3];
-			break;
-		case '5':
-            rect = [self rectForCoordinateX:1 Y:1 rows:3 columns:3];
-			break;
-		case '6':
-            rect = [self rectForCoordinateX:2 Y:1 rows:3 columns:3];
-			break;
-		case '1':
-            rect = [self rectForCoordinateX:0 Y:2 rows:3 columns:3];
-			break;
-		case '2':
-            rect = [self rectForCoordinateX:1 Y:2 rows:3 columns:3];
-			break;
-		case '3':
-            rect = [self rectForCoordinateX:2 Y:2 rows:3 columns:3];
-			break;
-		case '0':
-			rect = self.wildcardRect;
-		default:
-			break;
-	}
+    if (c == '0') {
+        self.zeroCommand = true;
+        return;
+    }
     
-	if (NSEqualRects(self.rect, self.wildcardRect)) {
-		// The first button pressed was 0
+    if (!self.zeroCommand) {
+        switch (c) {
+            case '7':
+                rect = [self rectForCoordinateX:0 Y:0 rows:3 columns:3];
+                break;
+            case '8':
+                rect = [self rectForCoordinateX:1 Y:0 rows:3 columns:3];
+                break;
+            case '9':
+                rect = [self rectForCoordinateX:2 Y:0 rows:3 columns:3];
+                break;
+            case '4':
+                rect = [self rectForCoordinateX:0 Y:1 rows:3 columns:3];
+                break;
+            case '5':
+                rect = [self rectForCoordinateX:1 Y:1 rows:3 columns:3];
+                break;
+            case '6':
+                rect = [self rectForCoordinateX:2 Y:1 rows:3 columns:3];
+                break;
+            case '1':
+                rect = [self rectForCoordinateX:0 Y:2 rows:3 columns:3];
+                break;
+            case '2':
+                rect = [self rectForCoordinateX:1 Y:2 rows:3 columns:3];
+                break;
+            case '3':
+                rect = [self rectForCoordinateX:2 Y:2 rows:3 columns:3];
+                break;
+            default:
+                return;
+        }
+    } else {
 		switch (c) {
             case '7':
                 rect = [self rectForCoordinateX:0 Y:0 rows:1 columns:2];
@@ -238,23 +239,18 @@ CGEventRef hotkeyCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef ev
                 rect = [self rectForCoordinateX:2 Y:1 rows:2 columns:3];
                 break;
 			default:
-				break;
+				return;
 		}
     }
 
 	if (NSEqualRects(NSZeroRect, self.rect)) {
 		self.rect = rect;
-	} else if (NSEqualRects(self.wildcardRect, rect)) {
-		// Zero pressed as second character, just abort the combination
-		self.rect = NSZeroRect;
 	} else {
-        if (!NSEqualRects(self.wildcardRect, self.rect)) {
-            rect = NSUnionRect(self.rect, rect);
-        }
-		self.rect = NSZeroRect;
+        rect = NSUnionRect(self.rect, rect);
+        self.rect = NSZeroRect;
+        self.zeroCommand = false;
 		[self setFrontmostWindowFrame:rect];
 	}
-
 }
 
 - (void)setFrontmostWindowFrame:(CGRect)frame {
